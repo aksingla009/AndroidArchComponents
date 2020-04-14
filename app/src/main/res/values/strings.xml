@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <string name="welcome">Welcome</string>
+    <string name="mvvm_label">MVVM</string>
+    <string name="label_top">App implementation using</string>
+    <string name="name_hint">Name</string>
+    <string name="email_hint">Email ID</string>
+    <string name="password_hint">password</string>
+    <string name="confirm_password_hint">confirm password</string>
+    <string name="forgot_password_label">Forgot Password?</string>
+    <string name="sign_up_btn_label">Sign Up</string>
+    <string name="signInAction_label">Already have an account?\nSign in Here</string>
+    <string name="sign_in_btn_label">Sign In</string>
+    <string name="signUpActionLabel">Don\'t have an account?\nSign Up Here</string>
+    <string name="menu_home_label">Home</string>
+    <string name="menu_quotes_label">Quotes</string>
+    <string name="menu_movies_label">Movies</string>
+
+</resources>

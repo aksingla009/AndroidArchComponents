@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    This is where  we will create reference to our data class -->
+    <!--    We create object references inside variable tag -->
+    <data>
+        <!--Here we will define all the data that will be used to bind in our layout-->
+        <!--In short Here we will define our View Model To Define ViewModel we use <variable> TAG -->
+        <!--Inside the variable tag Name of our variable can be any name
+           type should be full path of View Model class -->
+        <variable
+            name="anyNameAuthViewModel"
+            type="com.aman.demo.ui.auth.AuthViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E2E2E2"
+        tools:context=".ui.auth.LoginActivity">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="75dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/label_top"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/headingColor"
+                    app:fontFamily="cursive" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/mvvm_label"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@color/textColor"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    app:fontFamily="casual" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout1"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="12dp"
+                    android:autofillHints="@string/email_hint"
+                    android:background="@drawable/edit_text_round_gray_background"
+                    android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="16dp"
+                    android:hint="@string/email_hint"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:text="@={anyNameAuthViewModel.email}" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="12dp"
+                    android:autofillHints="@string/password_hint"
+                    android:background="@drawable/edit_text_round_gray_background"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="16dp"
+                    android:hint="@string/password_hint"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:text="@={anyNameAuthViewModel.password}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/forgot_password_label"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="@{anyNameAuthViewModel::onLoginButtonClicked}"
+                    android:text="@string/sign_in_btn_label"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:onClick="@{anyNameAuthViewModel::goToSignUpPage}"
+                android:text="@string/signUpActionLabel"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:visibility="invisible" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

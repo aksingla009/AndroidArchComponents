@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="newName"
+            type="com.aman.demo.ui.auth.AuthViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E2E2E2"
+        tools:context=".ui.auth.SignupActivity">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/label_top"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/headingColor"
+                    app:fontFamily="cursive" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/mvvm_label"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@color/textColor"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    app:fontFamily="casual" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout1"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="12dp"
+                    android:autofillHints="@string/name_hint"
+                    android:background="@drawable/edit_text_round_gray_background"
+                    android:drawableStart="@drawable/ic_name"
+                    android:drawablePadding="16dp"
+                    android:hint="@string/name_hint"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:text="@={newName.name}" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="12dp"
+                    android:autofillHints="@string/email_hint"
+                    android:background="@drawable/edit_text_round_gray_background"
+                    android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="16dp"
+                    android:hint="@string/email_hint"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:text="@={newName.email}" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="12dp"
+                    android:autofillHints="@string/password_hint"
+                    android:background="@drawable/edit_text_round_gray_background"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="16dp"
+                    android:hint="@string/password_hint"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:text="@={newName.password}" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="12dp"
+                    android:autofillHints="@string/confirm_password_hint"
+                    android:background="@drawable/edit_text_round_gray_background"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="16dp"
+                    android:hint="@string/confirm_password_hint"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:text="@={newName.confirmPassword}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/forgot_password_label"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="@{newName::onSignUpButtonClicked}"
+                    android:text="@string/sign_up_btn_label"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:onClick="@{newName::GoToLoginPage}"
+                android:text="@string/signInAction_label"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:visibility="invisible" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
